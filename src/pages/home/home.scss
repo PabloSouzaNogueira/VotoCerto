@@ -1,3 +1,49 @@
 page-home {
+    .tema {
+        
+        padding: 20px;    
+        color: white;
+        border-radius:5px;
+        border-width: 3pt;
+        margin: 2px;
+        
+        height: 170px;
+    } 
 
+    .economia {
+        background-color: rgb(94, 179, 87);
+        border: 2px solid rgb(83, 156, 77);
+    }
+
+    
+    .energia {
+        background-color: rgb(88, 179, 179);
+        border: 2px solid rgb(74, 151, 151);
+    }
+
+    .social {
+        background-color: rgb(236, 167, 97);
+        border: 2px solid rgb(188, 132, 77);
+    }
+
+    .seguranca {
+        background-color: rgb(104, 133, 228);
+        border: 2px solid rgb(75, 116, 193);
+    }
+
+    .educacao {
+        background-color: rgb(229, 108, 94);
+        border: 2px solid rgb(188, 88, 77);
+    }
+   
+    ion-icon > img{
+        
+        width: 70px;
+    }
+
+    .toolbar-title {
+        white-space: unset;
+        padding: 0px;
+        color: snow;
+    }
 }

@@ -1,14 +1,105 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      Temas
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content>
+
+
+  <ion-grid>
+    <ion-row>
+      <ion-col col-6>
+
+        <div text-center class="tema economia" (click)="entrarTema('Economia')" >
+          <ion-icon>
+            <img src="assets/imgs/icon_economia.png">
+          </ion-icon>
+          <br>
+          <ion-title>Economia</ion-title>
+          <br>
+          <ion-label style="margin:15px; position: absolute; bottom: 0; right: 0;">Respondidos: 0/3</ion-label>
+        </div>
+
+      </ion-col>
+
+      <ion-col col-6>
+
+        <div text-center class="tema energia" (click)="entrarTema('Energia')">
+          <ion-icon>
+            <img src="assets/imgs/icon_energia.png">
+          </ion-icon>
+          <br>
+          <ion-title>Energia</ion-title>
+          <br>
+          <ion-label style="margin:15px; position: absolute; bottom: 0; right: 0;">Respondidos: 0/3</ion-label>
+        </div>
+
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+
+      <ion-col col-12>
+
+        <div text-center class="tema social" (click)="entrarTema('Proteção Social')">
+          <ion-icon>
+            <img src="assets/imgs/icon_social.png">
+          </ion-icon>
+          <br>
+          <ion-title>Proteção Social</ion-title>
+          <br>
+          <ion-label style="margin:15px; position: absolute; bottom: 0; right: 0;">Respondidos: 0/3</ion-label>
+        </div>
+
+      </ion-col>
+
+
+    </ion-row>
+
+    <ion-row>
+
+      <ion-col col-6>
+
+        <div text-center class="tema seguranca" (click)="entrarTema('Segurança')">
+          <ion-icon>
+            <img src="assets/imgs/icon_seguranca.png">
+          </ion-icon>
+          <br>
+          <ion-title>Segurança</ion-title>
+          <br>
+          <ion-label style="margin:15px; position: absolute; bottom: 0; right: 0;">Respondidos: 0/3</ion-label>
+        </div>
+
+      </ion-col>
+
+      <ion-col col-6>
+
+        <div text-center class="tema educacao" (click)="entrarTema('Educação')">
+          <ion-icon>
+            <img src="assets/imgs/icon_educacao.png">
+          </ion-icon>
+          <br>
+          <ion-title>Educação</ion-title>
+          <br>
+          <ion-label style="margin:15px; position: absolute; bottom: 0; right: 0;">Respondidos: 0/3</ion-label>
+        </div>
+
+      </ion-col>
+
+    </ion-row>
+      <br>
+      <br>
+      <button style="margin: 7px;" ion-button round >Conferir Resultado</button>
+      <button style="margin: 7px;" ion-button round outline>Resetar Respostas</button>
+
+  </ion-grid>
+
+
+
+
+
+
 </ion-content>

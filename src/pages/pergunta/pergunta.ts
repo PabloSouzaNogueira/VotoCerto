@@ -15,7 +15,12 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class PerguntaPage {
 
+  descricao: string;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.descricao = navParams.get('titulo');
+
+
   }
 
   ionViewDidLoad() {
