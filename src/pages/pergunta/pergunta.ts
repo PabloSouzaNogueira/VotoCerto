@@ -24,6 +24,9 @@ export class PerguntaPage {
     this.perguntas = perguntaService.getPerguntasFromTema(this.tema);
   }
 
+  ionViewDidLoad() {
+  }
+
   carregarDescricao(descricao: string) {
     this.alertCtrl.create({
       subTitle: descricao,
@@ -32,7 +35,7 @@ export class PerguntaPage {
   }
 
   atualizarResposta(codigoPergunta: number, resposta: number) {
-    this.perguntaService.updatePergunta(codigoPergunta, resposta);
+    this.perguntaService.updateRespostaFromPergunta(codigoPergunta, resposta);
 
     this.navParams.get("contexto").carregarContadorRespostas();
   }

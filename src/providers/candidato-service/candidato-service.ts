@@ -14,11 +14,23 @@ export class CandidatoServiceProvider {
   }
 
   loadCandidatos() {
-    this.http.get(this.rotaAPI + "Candidatos/").map(res => res.json()).subscribe(data =>{ this.candidatos = data;    });
+    this.http.get(this.rotaAPI + "Candidatos/").map(res => res.json()).subscribe(data => { this.candidatos = data; });
   }
 
-  getCandidatos(): any{
+  getCandidatos(): any {
     return this.candidatos;
+  }
+
+  updateAfinidadeFromCandidato(idCandidato: number){
+    this.candidatos.find((candidato) => { return candidato.id == idCandidato }).afinidade++;
+  }
+
+  zerarAfinidade() {
+    let resultado = this.candidatos.filter((candidato) => { return candidato.afinidade != 0 });
+
+    for (let i = 0; i < resultado.length; i++) {
+      resultado[i].afinidade = 0;
+    }
   }
 
 }

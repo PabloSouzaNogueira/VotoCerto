@@ -4,6 +4,9 @@ import { PerguntaPage } from '../pergunta/pergunta';
 import { ResultadoPage } from '../resultado/resultado';
 import { PerguntaServiceProvider } from '../../providers/pergunta-service/pergunta-service';
 import { CandidatoServiceProvider } from '../../providers/candidato-service/candidato-service';
+import { RespostaServiceProvider } from '../../providers/resposta-service/resposta-service';
+
+
 
 @Component({
   selector: 'page-home',
@@ -21,21 +24,19 @@ export class HomePage {
   constructor(public navCtrl: NavController,
     public perguntaService: PerguntaServiceProvider,
     public candidatoService: CandidatoServiceProvider,
+    public respostaService: RespostaServiceProvider,
     public alertCtrl: AlertController,
     public toastCtrl: ToastController,
     public loadingCtrl: LoadingController) {
 
     let loading = this.loadingCtrl.create();
     loading.present();
-    
-    this.perguntaService.loadPerguntas().subscribe(data => { this.perguntaService.setPerguntas(data);  this.carregarContadorRespostas();});
-   
+
+    this.perguntaService.loadPerguntas().subscribe(data => { this.perguntaService.setPerguntas(data); this.carregarContadorRespostas(); });
     this.candidatoService.loadCandidatos();
+    this.respostaService.loadRespostas();
 
     loading.dismiss();
-  }
-
-  ionViewWillEnter() {
   }
 
   entrarTema(tema: string) {

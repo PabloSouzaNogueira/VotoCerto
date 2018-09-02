@@ -24,14 +24,16 @@ export class PerguntaServiceProvider {
   constructor(public http: Http) {
   }
 
+  getPerguntas(): any {
+    return this.perguntas;
+  }
 
   setPerguntas(perguntas: any) {
     this.perguntas = perguntas;
   }
 
   loadPerguntas() {
-    //this.http.get("https://votocerto.herokuapp.com/Perguntas/").map(res => res.json()).subscribe(data => { this.perguntas = data; });
-    return this.http.get("https://votocerto.herokuapp.com/Perguntas/").map(res => res.json());
+    return this.http.get(this.rotaAPI + "Perguntas/").map(res => res.json());
   }
 
 
@@ -39,7 +41,7 @@ export class PerguntaServiceProvider {
     return this.perguntas.filter((pergunta) => { return pergunta.tema == tema });
   }
 
-  updatePergunta(codigoPergunta: number, resposta: number) {
+  updateRespostaFromPergunta(codigoPergunta: number, resposta: number) {
     this.perguntas.find((pergunta) => { return pergunta.codigo == codigoPergunta }).resposta = resposta;
   }
 
