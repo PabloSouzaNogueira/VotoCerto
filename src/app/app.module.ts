@@ -9,13 +9,15 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { PerguntaPage } from '../pages/pergunta/pergunta';
+import { ResultadoPage } from '../pages/resultado/resultado';
 import { PerguntaServiceProvider } from '../providers/pergunta-service/pergunta-service';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    PerguntaPage
+    PerguntaPage,
+    ResultadoPage
   ],
   imports: [
     BrowserModule,
@@ -26,7 +28,8 @@ import { PerguntaServiceProvider } from '../providers/pergunta-service/pergunta-
   entryComponents: [
     MyApp,
     HomePage,
-    PerguntaPage
+    PerguntaPage,
+    ResultadoPage
   ],
   providers: [
     StatusBar,

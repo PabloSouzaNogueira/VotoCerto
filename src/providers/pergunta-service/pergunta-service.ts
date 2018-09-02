@@ -35,4 +35,16 @@ export class PerguntaServiceProvider {
     this.perguntas.find((pergunta) => { return pergunta.codigo == codigoPergunta }).resposta = resposta;
   }
 
+  zerarRespostas() {
+    let resultado = this.perguntas.filter((pergunta) => { return pergunta.resposta != 0 });
+
+    for (let i = 0; i < resultado.length; i++) {
+      resultado[i].resposta = 0;
+    }
+  }
+
+  existePerguntaSemResposta(): boolean {
+    return this.perguntas.some((pergunta) => { return pergunta.resposta == 0 });
+  }
+
 }

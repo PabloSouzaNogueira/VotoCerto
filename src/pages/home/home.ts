@@ -1,6 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, AlertController, ToastController } from 'ionic-angular';
 import { PerguntaPage } from '../pergunta/pergunta';
+import { ResultadoPage } from '../resultado/resultado';
 import { PerguntaServiceProvider } from '../../providers/pergunta-service/pergunta-service';
 
 @Component({
@@ -16,7 +17,7 @@ export class HomePage {
   perguntasSeguranca: number[];
   perguntasEducacao: number[];
 
-  constructor(public navCtrl: NavController, public perguntaService: PerguntaServiceProvider) {
+  constructor(public navCtrl: NavController, public perguntaService: PerguntaServiceProvider, public alertCtrl: AlertController, public toastCtrl: ToastController) {
     this.carregarContadorRespostas();
   }
 
@@ -47,5 +48,24 @@ export class HomePage {
     this.perguntasEducacao.push(this.perguntaService.getTotalPerguntasFromTema("Educação"));
   }
 
-  
+  conferirResultado() {
+    if (this.perguntaService.existePerguntaSemResposta()) 
+    {
+      this.toastCtrl.create({
+        message: 'É necessário responder todas as perguntas primeiro.',
+        duration: 3000,
+        position: 'bottom'
+      }).present();
+    } else {
+      this.navCtrl.push(ResultadoPage);
+    }
+  }
+
+  resetarRespostas() {
+    this.alertCtrl.create({
+      title: 'Resetar Respostas',
+      message: 'Deseja realmente resetar suas respostas?',
+      buttons: [{ text: 'Não' }, { text: 'Sim', handler: () => { this.perguntaService.zerarRespostas(); this.carregarContadorRespostas(); } }]
+    }).present();
+  }
 }
