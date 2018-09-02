@@ -1,13 +1,10 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>
-      Temas
-    </ion-title>
+    <ion-title>Temas</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content>
-
+<ion-content >
 
   <ion-grid>
     <ion-row>
@@ -20,7 +17,7 @@
           <br>
           <ion-title>Economia</ion-title>
           <br>
-          <ion-label style="margin:15px; position: absolute; bottom: 0; right: 0;">Respondidos: 0/3</ion-label>
+          <ion-label style="margin:15px; position: absolute; bottom: 0; right: 0;">Respondidos: {{perguntasEconomia[0]}}/{{perguntasEconomia[1]}}</ion-label>
         </div>
 
       </ion-col>
@@ -34,7 +31,7 @@
           <br>
           <ion-title>Energia</ion-title>
           <br>
-          <ion-label style="margin:15px; position: absolute; bottom: 0; right: 0;">Respondidos: 0/3</ion-label>
+          <ion-label style="margin:15px; position: absolute; bottom: 0; right: 0;">Respondidos: {{perguntasEnergia[0]}}/{{perguntasEnergia[1]}}</ion-label>
         </div>
 
       </ion-col>
@@ -51,7 +48,7 @@
           <br>
           <ion-title>Proteção Social</ion-title>
           <br>
-          <ion-label style="margin:15px; position: absolute; bottom: 0; right: 0;">Respondidos: 0/3</ion-label>
+          <ion-label style="margin:15px; position: absolute; bottom: 0; right: 0;">Respondidos: {{perguntasSocial[0]}}/{{perguntasSocial[1]}}</ion-label>
         </div>
 
       </ion-col>
@@ -70,7 +67,7 @@
           <br>
           <ion-title>Segurança</ion-title>
           <br>
-          <ion-label style="margin:15px; position: absolute; bottom: 0; right: 0;">Respondidos: 0/3</ion-label>
+          <ion-label style="margin:15px; position: absolute; bottom: 0; right: 0;">Respondidos: {{perguntasSeguranca[0]}}/{{perguntasSeguranca[1]}}</ion-label>
         </div>
 
       </ion-col>
@@ -84,7 +81,7 @@
           <br>
           <ion-title>Educação</ion-title>
           <br>
-          <ion-label style="margin:15px; position: absolute; bottom: 0; right: 0;">Respondidos: 0/3</ion-label>
+          <ion-label style="margin:15px; position: absolute; bottom: 0; right: 0;">Respondidos: {{perguntasEducacao[0]}}/{{perguntasEducacao[1]}}</ion-label>
         </div>
 
       </ion-col>
@@ -92,14 +89,10 @@
     </ion-row>
       <br>
       <br>
-      <button style="margin: 7px;" ion-button round >Conferir Resultado</button>
+      <button style="margin: 7px;" ion-button round (click)="teste()">Conferir Resultado</button>
       <button style="margin: 7px;" ion-button round outline>Resetar Respostas</button>
 
   </ion-grid>
-
-
-
-
 
 
 </ion-content>
