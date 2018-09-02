@@ -14,5 +14,14 @@
 
 
 <ion-content padding>
-
+    <ion-list>
+        <ion-item  *ngFor="let candidato of candidatos">
+            <ion-avatar item-start>
+              <img src="{{candidato.foto}}">
+            </ion-avatar>
+            <h2>{{candidato.nome}}</h2>
+            <p >{{candidato.partido}} - {{candidato.numero}}</p>
+            <h2 item-end>10%</h2>
+          </ion-item>
+    </ion-list>
 </ion-content>

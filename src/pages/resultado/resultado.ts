@@ -1,21 +1,24 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
+import { CandidatoServiceProvider } from '../../providers/candidato-service/candidato-service';
 
-/**
- * Generated class for the ResultadoPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
   selector: 'page-resultado',
   templateUrl: 'resultado.html',
 })
+
 export class ResultadoPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  candidatos: any;
+  constructor(public navCtrl: NavController, public navParams: NavParams, public candidatoService: CandidatoServiceProvider, public loadingCtrl: LoadingController) {
+
+    let loading = this.loadingCtrl.create();
+    loading.present();
+    
+    this.candidatos = this.candidatoService.getCandidatos();
+    loading.dismiss();
   }
 
   ionViewDidLoad() {

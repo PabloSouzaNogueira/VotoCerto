@@ -1,3 +1,8 @@
 page-resultado {
-
+    ion-avatar img {
+        border-radius: 50%;
+        overflow: hidden;
+        width: 60px !important;
+        height: 60px !important;
+    }
 }

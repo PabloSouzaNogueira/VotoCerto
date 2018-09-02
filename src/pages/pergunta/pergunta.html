@@ -12,7 +12,7 @@
     </ion-card-header>
 
     <ion-card-content>
-      <p>{{pergunta.texto}}  <span style="color: #488aff; text-decoration: underline;" (click)="carregarDescricao(pergunta.descricao)">Saiba mais...</span> </p>
+      <p>{{pergunta.pergunta}}  <span style="color: #488aff; text-decoration: underline;" (click)="carregarDescricao(pergunta.descricao)">Saiba mais...</span> </p>
       <br>
       
       <ion-list radio-group [(ngModel)]="pergunta.resposta" >

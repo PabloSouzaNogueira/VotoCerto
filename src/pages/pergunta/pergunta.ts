@@ -15,7 +15,11 @@ export class PerguntaPage {
   perguntas: any[];
   callback;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public perguntaService: PerguntaServiceProvider, public alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController,
+    public navParams: NavParams,
+    public perguntaService: PerguntaServiceProvider,
+    public alertCtrl: AlertController) {
+
     this.tema = navParams.get('titulo');
     this.perguntas = perguntaService.getPerguntasFromTema(this.tema);
   }
@@ -29,17 +33,8 @@ export class PerguntaPage {
 
   atualizarResposta(codigoPergunta: number, resposta: number) {
     this.perguntaService.updatePergunta(codigoPergunta, resposta);
-    
+
     this.navParams.get("contexto").carregarContadorRespostas();
   }
 
-
- /* ionViewWillEnter() {
-    console.log("onSubmit2");
-    this.callback = this.navParams.get("callback");
-  }
-  ionViewWillLeave() {
-    console.log("onSubmit1");
-    this.callback();
-  }*/
 }

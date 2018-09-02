@@ -11,6 +11,7 @@ import { HomePage } from '../pages/home/home';
 import { PerguntaPage } from '../pages/pergunta/pergunta';
 import { ResultadoPage } from '../pages/resultado/resultado';
 import { PerguntaServiceProvider } from '../providers/pergunta-service/pergunta-service';
+import { CandidatoServiceProvider } from '../providers/candidato-service/candidato-service';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { PerguntaServiceProvider } from '../providers/pergunta-service/pergunta-
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    PerguntaServiceProvider
+    PerguntaServiceProvider,
+    CandidatoServiceProvider
   ]
 })
 export class AppModule {}

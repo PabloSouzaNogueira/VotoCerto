@@ -1,8 +1,9 @@
-import { Component, ViewChild } from '@angular/core';
-import { NavController, AlertController, ToastController } from 'ionic-angular';
+import { Component } from '@angular/core';
+import { NavController, AlertController, ToastController, LoadingController } from 'ionic-angular';
 import { PerguntaPage } from '../pergunta/pergunta';
 import { ResultadoPage } from '../resultado/resultado';
 import { PerguntaServiceProvider } from '../../providers/pergunta-service/pergunta-service';
+import { CandidatoServiceProvider } from '../../providers/candidato-service/candidato-service';
 
 @Component({
   selector: 'page-home',
@@ -11,14 +12,30 @@ import { PerguntaServiceProvider } from '../../providers/pergunta-service/pergun
 
 export class HomePage {
 
-  perguntasEconomia: number[];
-  perguntasEnergia: number[];
-  perguntasSocial: number[];
-  perguntasSeguranca: number[];
-  perguntasEducacao: number[];
+  perguntasEconomia: number[] = [2];
+  perguntasEnergia: number[] = [2];
+  perguntasSocial: number[] = [2];
+  perguntasSeguranca: number[] = [2];
+  perguntasEducacao: number[] = [2];
 
-  constructor(public navCtrl: NavController, public perguntaService: PerguntaServiceProvider, public alertCtrl: AlertController, public toastCtrl: ToastController) {
-    this.carregarContadorRespostas();
+  constructor(public navCtrl: NavController,
+    public perguntaService: PerguntaServiceProvider,
+    public candidatoService: CandidatoServiceProvider,
+    public alertCtrl: AlertController,
+    public toastCtrl: ToastController,
+    public loadingCtrl: LoadingController) {
+
+    let loading = this.loadingCtrl.create();
+    loading.present();
+    
+    this.perguntaService.loadPerguntas().subscribe(data => { this.perguntaService.setPerguntas(data);  this.carregarContadorRespostas();});
+   
+    this.candidatoService.loadCandidatos();
+
+    loading.dismiss();
+  }
+
+  ionViewWillEnter() {
   }
 
   entrarTema(tema: string) {
@@ -49,8 +66,7 @@ export class HomePage {
   }
 
   conferirResultado() {
-    if (this.perguntaService.existePerguntaSemResposta()) 
-    {
+    /*if (this.perguntaService.existePerguntaSemResposta()) {
       this.toastCtrl.create({
         message: 'É necessário responder todas as perguntas primeiro.',
         duration: 3000,
@@ -58,7 +74,8 @@ export class HomePage {
       }).present();
     } else {
       this.navCtrl.push(ResultadoPage);
-    }
+    }*/
+    this.navCtrl.push(ResultadoPage);
   }
 
   resetarRespostas() {
@@ -68,4 +85,11 @@ export class HomePage {
       buttons: [{ text: 'Não' }, { text: 'Sim', handler: () => { this.perguntaService.zerarRespostas(); this.carregarContadorRespostas(); } }]
     }).present();
   }
+
+  /* ionViewWillEnter() {
+   
+ }
+ ionViewWillLeave() {
+  
+ }*/
 }
