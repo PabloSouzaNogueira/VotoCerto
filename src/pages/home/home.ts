@@ -67,7 +67,7 @@ export class HomePage {
   }
 
   conferirResultado() {
-    /*if (this.perguntaService.existePerguntaSemResposta()) {
+    if (this.perguntaService.existePerguntaSemResposta()) {
       this.toastCtrl.create({
         message: 'É necessário responder todas as perguntas primeiro.',
         duration: 3000,
@@ -75,8 +75,8 @@ export class HomePage {
       }).present();
     } else {
       this.navCtrl.push(ResultadoPage);
-    }*/
-    this.navCtrl.push(ResultadoPage);
+    }
+    //this.navCtrl.push(ResultadoPage);
   }
 
   resetarRespostas() {
@@ -87,10 +87,9 @@ export class HomePage {
     }).present();
   }
 
-  /* ionViewWillEnter() {
-   
- }
- ionViewWillLeave() {
-  
- }*/
+  ionViewWillEnter() {
+  }
+
+  ionViewWillLeave() {
+  }
 }

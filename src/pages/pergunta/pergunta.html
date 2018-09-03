@@ -12,10 +12,11 @@
     </ion-card-header>
 
     <ion-card-content>
-      <p>{{pergunta.pergunta}}  <span style="color: #488aff; text-decoration: underline;" (click)="carregarDescricao(pergunta.descricao)">Saiba mais...</span> </p>
+      <p>{{pergunta.pergunta}} <span style="color: #488aff; text-decoration: underline;" (click)="carregarDescricao(pergunta.descricao)">Saiba
+          mais...</span> </p>
       <br>
-      
-      <ion-list radio-group [(ngModel)]="pergunta.resposta" >
+
+      <ion-list radio-group [(ngModel)]="pergunta.resposta">
         <ion-item no-lines class="contra">
           <ion-label>CONTRA</ion-label>
           <ion-radio color="vermelho" value="1" (ionSelect)="atualizarResposta(pergunta.id, 1)"></ion-radio>
@@ -23,12 +24,12 @@
 
         <ion-item no-lines class="depende">
           <ion-label>DEPENDE</ion-label>
-          <ion-radio color="amarelo" value="2"(ionSelect)="atualizarResposta(pergunta.id, 2)"></ion-radio>
+          <ion-radio color="amarelo" value="2" (ionSelect)="atualizarResposta(pergunta.id, 2)"></ion-radio>
         </ion-item>
 
         <ion-item no-lines class="favor">
           <ion-label>A FAVOR</ion-label>
-          <ion-radio color="verde" value="3"(ionSelect)="atualizarResposta(pergunta.id, 3)"></ion-radio>
+          <ion-radio color="verde" value="3" (ionSelect)="atualizarResposta(pergunta.id, 3)"></ion-radio>
         </ion-item>
       </ion-list>
     </ion-card-content>

@@ -33,7 +33,6 @@ export class PerguntaServiceProvider {
 
   updateRespostaFromPergunta(codigoPergunta: number, resposta: number) {
     this.perguntas.find((pergunta) => { return pergunta.id == codigoPergunta }).resposta = resposta;
-    //let p = this.perguntas.find((pergunta) => { return pergunta.codigo == codigoPergunta }).resposta = resposta;
   }
 
 

@@ -31,7 +31,7 @@ export class ResultadoPage {
     this.respostasEu = this.perguntaService.getPerguntas();
     this.calcularAfinidade();
     this.candidatoService.ordernarCandidatos();
-    
+
     loading.dismiss();
   }
 
