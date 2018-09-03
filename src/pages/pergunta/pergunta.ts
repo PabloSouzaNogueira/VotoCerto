@@ -13,7 +13,6 @@ export class PerguntaPage {
 
   tema: string;
   perguntas: any[];
-  callback;
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,

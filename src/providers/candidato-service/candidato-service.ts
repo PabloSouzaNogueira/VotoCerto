@@ -7,7 +7,7 @@ export class CandidatoServiceProvider {
 
   rotaAPI: string = "https://votocerto.herokuapp.com/";
 
-  candidatos: any;
+  candidatos: any[];
 
   constructor(public http: Http) {
 
@@ -17,20 +17,25 @@ export class CandidatoServiceProvider {
     this.http.get(this.rotaAPI + "Candidatos/").map(res => res.json()).subscribe(data => { this.candidatos = data; });
   }
 
-  getCandidatos(): any {
+  getCandidatos(): any []{
     return this.candidatos;
   }
 
   updateAfinidadeFromCandidato(idCandidato: number){
     this.candidatos.find((candidato) => { return candidato.id == idCandidato }).afinidade++;
+
   }
 
   zerarAfinidade() {
-    let resultado = this.candidatos.filter((candidato) => { return candidato.afinidade != 0 });
+    let resultado = this.candidatos.filter((candidato) => { return candidato.resposta != 0 });
 
     for (let i = 0; i < resultado.length; i++) {
       resultado[i].afinidade = 0;
     }
+  }
+
+  ordernarCandidatos(){
+    this.candidatos.sort((candidatoA, candidatoB) => {return candidatoA.afinidade - candidatoB.afinidade}).reverse();
   }
 
 }

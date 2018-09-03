@@ -15,7 +15,7 @@
             </ion-avatar>
             <h2>{{candidato.nome}}</h2>
             <p >{{candidato.partido}} - {{candidato.numero}}</p>
-            <h2 item-end>{{candidato.afinidade}}</h2>
+            <h1 item-end>{{ candidato.afinidade }} %</h1> <!--((candidato.afinidade / respostasEu.length) * 100).toFixed(2)-->
           </ion-item>
     </ion-list>
 </ion-content>

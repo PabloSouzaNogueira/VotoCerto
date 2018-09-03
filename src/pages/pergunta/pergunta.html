@@ -18,17 +18,17 @@
       <ion-list radio-group [(ngModel)]="pergunta.resposta" >
         <ion-item no-lines class="contra">
           <ion-label>CONTRA</ion-label>
-          <ion-radio color="vermelho" value="1" (ionSelect)="atualizarResposta(pergunta.codigo, 1)"></ion-radio>
+          <ion-radio color="vermelho" value="1" (ionSelect)="atualizarResposta(pergunta.id, 1)"></ion-radio>
         </ion-item>
 
         <ion-item no-lines class="depende">
           <ion-label>DEPENDE</ion-label>
-          <ion-radio color="amarelo" value="2"(ionSelect)="atualizarResposta(pergunta.codigo, 2)"></ion-radio>
+          <ion-radio color="amarelo" value="2"(ionSelect)="atualizarResposta(pergunta.id, 2)"></ion-radio>
         </ion-item>
 
         <ion-item no-lines class="favor">
           <ion-label>A FAVOR</ion-label>
-          <ion-radio color="verde" value="3"(ionSelect)="atualizarResposta(pergunta.codigo, 3)"></ion-radio>
+          <ion-radio color="verde" value="3"(ionSelect)="atualizarResposta(pergunta.id, 3)"></ion-radio>
         </ion-item>
       </ion-list>
     </ion-card-content>

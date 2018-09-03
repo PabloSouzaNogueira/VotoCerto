@@ -13,7 +13,9 @@ import { PerguntaServiceProvider } from '../../providers/pergunta-service/pergun
 
 export class ResultadoPage {
 
-  candidatos: any;
+  candidatos: any[];
+  respostasEu: any[];
+
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public candidatoService: CandidatoServiceProvider,
@@ -26,7 +28,9 @@ export class ResultadoPage {
 
     this.candidatoService.zerarAfinidade();
     this.candidatos = this.candidatoService.getCandidatos();
+    this.respostasEu = this.perguntaService.getPerguntas();
     this.calcularAfinidade();
+    this.candidatoService.ordernarCandidatos();
     
     loading.dismiss();
   }
@@ -34,28 +38,18 @@ export class ResultadoPage {
   ionViewDidLoad() {
   }
 
-  
-
   calcularAfinidade() {
-
-
-    let respostasEu = this.perguntaService.getPerguntas();
-
     for (let candidato of this.candidatos) {
-
       let respostasCandidato = this.respostaService.getRespostasFromCandidato(candidato.id);
 
       for (let RC of respostasCandidato) {
-        let RE = respostasEu.find((resposta) => { return resposta.id == RC.idPergunta })
-        if (RE.resposta == RC.resposta &&  RC.idCandidato == 1) {
-          //console.log("Resposta igual!");
+        let RE = this.respostasEu.find((resposta) => { return resposta.id == RC.idPergunta })
+
+        if (RE.resposta == RC.resposta) {
           this.candidatoService.updateAfinidadeFromCandidato(candidato.id);
         }
       }
     }
-
   }
-
-
 
 }

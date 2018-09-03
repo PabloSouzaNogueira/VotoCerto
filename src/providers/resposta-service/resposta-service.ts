@@ -8,7 +8,7 @@ export class RespostaServiceProvider {
 
   rotaAPI: string = "https://votocerto.herokuapp.com/";
 
-  respostas: any;
+  respostas: any[];
 
   constructor(public http: Http) {
   }
@@ -17,11 +17,11 @@ export class RespostaServiceProvider {
     this.http.get(this.rotaAPI + "RespostasCandidatos/").map(res => res.json()).subscribe(data => { this.respostas = data; });
   }
 
-  getRespostas(): any {
+  getRespostas(): any[] {
     return this.respostas;
   }
 
-  getRespostasFromCandidato(idCandidato: number){
+  getRespostasFromCandidato(idCandidato: number) {
     return this.respostas.filter((resposta) => { return resposta.idCandidato == idCandidato });
   }
 
