@@ -10,6 +10,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { PerguntaPage } from '../pages/pergunta/pergunta';
 import { ResultadoPage } from '../pages/resultado/resultado';
+import { SlidePage } from '../pages/slide/slide';
 import { PerguntaServiceProvider } from '../providers/pergunta-service/pergunta-service';
 import { CandidatoServiceProvider } from '../providers/candidato-service/candidato-service';
 import { RespostaServiceProvider } from '../providers/resposta-service/resposta-service';
@@ -19,7 +20,8 @@ import { RespostaServiceProvider } from '../providers/resposta-service/resposta-
     MyApp,
     HomePage,
     PerguntaPage,
-    ResultadoPage
+    ResultadoPage,
+    SlidePage
   ],
   imports: [
     BrowserModule,
@@ -31,7 +33,8 @@ import { RespostaServiceProvider } from '../providers/resposta-service/resposta-
     MyApp,
     HomePage,
     PerguntaPage,
-    ResultadoPage
+    ResultadoPage,
+    SlidePage
   ],
   providers: [
     StatusBar,

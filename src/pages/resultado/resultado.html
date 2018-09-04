@@ -15,7 +15,11 @@
       </ion-avatar>
       <h2>{{candidato.nome}}</h2>
       <p>{{candidato.partido}} - {{candidato.numero}}</p>
-      <h1 item-end>{{ ((candidato.afinidade / respostasEu.length) * 100).toFixed(2) }} %</h1>
+      <h1 [class.baixo_afinidade]="((candidato.afinidade / respostasEu.length) * 100).toFixed(2) < 30" 
+        [class.media_afinidade]="((candidato.afinidade / respostasEu.length) * 100).toFixed(2) >= 30" 
+        [class.alta_afinidade]="((candidato.afinidade / respostasEu.length) * 100).toFixed(2) >= 70" 
+
+        item-end>{{ ((candidato.afinidade / respostasEu.length) * 100).toFixed(2) }} %</h1>
     </ion-item>
   </ion-list>
 </ion-content>

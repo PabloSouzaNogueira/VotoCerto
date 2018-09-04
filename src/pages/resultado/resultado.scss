@@ -4,5 +4,18 @@ page-resultado {
         overflow: hidden;
         width: 60px !important;
         height: 60px !important;
+        object-fit: cover;
+    }
+
+    .baixo_afinidade{
+        color: rgb(188, 88, 77);
+    }
+
+    .media_afinidade{
+        color: rgb(240, 211, 82);
+
+    }
+    .alta_afinidade{
+        color: rgb(83, 156, 77);
     }
 }
