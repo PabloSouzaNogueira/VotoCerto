@@ -4,11 +4,16 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content>
+<ion-content  [class.background_economia]="tema == 'Economia'"
+[class.background_energia]="tema == 'Energia'"
+[class.background_social]="tema == 'Proteção Social'"
+[class.background_seguranca]="tema == 'Segurança'"
+[class.background_educacao]="tema == 'Educação'"
+>
 
   <ion-card color="light" *ngFor="let pergunta of perguntas">
     <ion-card-header>
-      <h1>{{pergunta.titulo}}</h1>
+      <h1 style="white-space: normal;">{{pergunta.titulo}}</h1>
     </ion-card-header>
 
     <ion-card-content>
